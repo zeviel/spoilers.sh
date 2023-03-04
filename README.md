@@ -1,5 +1,5 @@
 # spoilers.sh
-Web-API for [spoilers](https://vk.com/app51515102) an vk application to publish film spoilers, to share creatives with your friends on the wall and stories, let their life never be the same!
+Web-API for [spoilers](https://vk.com/app51515102) an vk service to publish film spoilers, to share creatives with your friends on the wall and stories, let their life never be the same!
 
 ## Example
 ```bash
