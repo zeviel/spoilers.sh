@@ -3,6 +3,8 @@
 api="https://api-spoiler.panfilov.tech"
 sign=null
 user_id=null
+vk_ts=null
+vk_ref=null
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
