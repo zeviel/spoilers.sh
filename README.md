@@ -4,5 +4,5 @@ Web-API for [spoilers](https://vk.com/app51515102) an vk application to publish 
 ## Example
 ```bash
 source spoilers.sh
-authenticate "sign" "user_id" "vk_ts" "vk_ref"
+authenticate "sign" "vk_user_id" "vk_ts" "vk_ref"
 ```
