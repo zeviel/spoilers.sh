@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -29,7 +30,7 @@ function get_spoilers() {
 	# 1 - limit: (integer): <limit - default: 10>
 	curl --request GET \
 		--url "$api/spoilers/get/all?limit=${1:-10}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
@@ -38,7 +39,7 @@ function search_movie() {
 	# 1 - query: (string): <query>
 	curl --request GET \
 		--url "$api/movies/search?language=ru-RU&query=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
@@ -47,7 +48,7 @@ function get_movie_info() {
 	# 1 - movie_id: (integer): <movie_id>
 	curl --request GET \
 		--url "$api/movies/get/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
@@ -57,7 +58,7 @@ function get_movie_spoilers() {
 	# 2 - limit: (integer): <limit - default: 10>
 	curl --request GET \
 		--url "$api/spoilers/get/film/$1?limit=${2:-10}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
@@ -67,7 +68,7 @@ function insert_spoiler() {
 	# 2 - text: (string): <text>
 	curl --request POST \
 		--url "$api/spoilers/insert" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params" \
 		--data '{
@@ -82,7 +83,7 @@ function update_spoiler() {
 	# 3 - text: (string): <text>
 	curl --request POST \
 		--url "$api/spoilers/update" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params" \
 		--data '{
@@ -96,7 +97,7 @@ function delete_spoiler() {
 	# 1 - spoiler_id: (integer): <spoiler_id>
 	curl --request POST \
 		--url "$api/spoilers/delete" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params" \
 		--data '{
@@ -108,7 +109,7 @@ function like_spoiler() {
 	# 1 - spoiler_id: (integer): <spoiler_id>
 	curl --request POST \
 		--url "$api/spoilers/like" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params" \
 		--data '{
@@ -120,7 +121,7 @@ function get_spoiler_info() {
 	# 1 - spoiler_id: (integer): <spoiler_id>
 	curl --request GET \
 		--url "$api/spoilers/get/one/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
@@ -129,7 +130,7 @@ function report_user() {
 	# 1 - vk_user_id: (integer): <vk_user_id>
 	curl --request POST \
 		--url "$api/users/report" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params" \
 		--data '{
@@ -142,7 +143,7 @@ function get_user_spoilers() {
 	# 2 - limit: (integer): <limit - default: 10>
 	curl --request GET \
 		--url "$api/spoilers/get/user/$1?limit=${2:-10}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "x-query-params: $params"
 }
